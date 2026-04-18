@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edulekha.in — School ERP, Websites & Software Development</title>
+    <meta name="description" content="We craft stunning websites, powerful school ERP systems, and custom software solutions. Based in Lalitpur, U.P. — serving clients nationwide.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Sora', 'sans-serif'], body: ['Inter', 'sans-serif'] },
+                    colors: {
+                        brand:     '#6B4226',
+                        gold:      '#C4956A',
+                        goldLight: '#D4A574',
+                        cream:     '#F5F0E8',
+                        paper:     '#FFFDF8',
+                        espresso:  '#1C1410',
+                        warm:      '#8B5E3C',
+                    },
+                    animation: {
+                        'fade-up':   'fadeUp 0.7s ease-out forwards',
+                        'fade-in':   'fadeIn 0.6s ease-out forwards',
+                        'float':     'float 6s ease-in-out infinite',
+                        'tilt':      'tilt 8s ease-in-out infinite',
+                        'counter':   'counter 2s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeUp:   { '0%': { opacity:0, transform:'translateY(28px)' }, '100%': { opacity:1, transform:'translateY(0)' } },
+                        fadeIn:   { '0%': { opacity:0 }, '100%': { opacity:1 } },
+                        float:    { '0%,100%': { transform:'translateY(0)' }, '50%': { transform:'translateY(-10px)' } },
+                        tilt:     { '0%,100%': { transform:'rotate(-1deg)' }, '50%': { transform:'rotate(1deg)' } },
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1,h2,h3,h4,h5,h6,.font-heading { font-family: 'Sora', sans-serif; }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #F5F0E8; }
+        ::-webkit-scrollbar-thumb { background: #C4956A; border-radius: 8px; }
+
+        .reveal { opacity: 0; transform: translateY(28px); transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        /* Lotus SVG background pattern */
+        .lotus-bg {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5 C25 15, 15 20, 10 30 C15 28, 25 25, 30 20 C35 25, 45 28, 50 30 C45 20, 35 15, 30 5z' fill='%23C4956A' fill-opacity='0.03'/%3E%3C/svg%3E");
+        }
+
+        /* Browser mockup */
+        .browser-frame { border-radius: 12px; overflow: hidden; box-shadow: 0 25px 60px rgba(28,20,16,0.12), 0 8px 20px rgba(28,20,16,0.08); transition: all 0.5s cubic-bezier(0.16,1,0.3,1); }
+        .browser-frame:hover { transform: translateY(-8px) scale(1.01); box-shadow: 0 35px 80px rgba(28,20,16,0.18), 0 12px 30px rgba(28,20,16,0.1); }
+
+        .browser-bar {
+            background: linear-gradient(180deg, #E8E3DC, #DDD7CE);
+            padding: 10px 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .browser-dot { width: 12px; height: 12px; border-radius: 50%; }
+        .browser-dot.red { background: #FF5F57; }
+        .browser-dot.yellow { background: #FFBD2E; }
+        .browser-dot.green { background: #28CA41; }
+        .browser-url {
+            flex: 1;
+            margin-left: 12px;
+            background: rgba(255,255,255,0.7);
+            border-radius: 6px;
+            padding: 5px 14px;
+            font-size: 11px;
+            color: #6B4226;
+            font-family: 'Inter', monospace;
+            letter-spacing: 0.02em;
+        }
+
+        /* Gradient text */
+        .gradient-brand {
+            background: linear-gradient(135deg, #6B4226 0%, #C4956A 50%, #8B5E3C 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Step connector line */
+        .step-line { position: relative; }
+        .step-line::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 40px;
+            right: -60%;
+            height: 2px;
+            background: linear-gradient(90deg, #C4956A, #C4956A33);
+        }
+
+        /* WhatsApp pulse */
+        @keyframes waPulse {
+            0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.4); }
+            70% { box-shadow: 0 0 0 20px rgba(37,211,102,0); }
+            100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+        }
+        .wa-pulse { animation: waPulse 2s infinite; }
+    </style>
+</head>
+<body class="bg-paper text-espresso antialiased lotus-bg selection:bg-gold/30">
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- NAVBAR -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <nav class="fixed top-0 w-full z-50 transition-all duration-500" id="nav">
+        <div class="max-w-6xl mx-auto px-5 py-4 flex justify-between items-center">
+            <a href="#" class="flex items-center gap-2">
+                <!-- Lotus SVG Logo -->
+                <svg class="w-8 h-8" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M50 15 C42 30, 25 38, 15 50 C25 47, 42 42, 50 35 C58 42, 75 47, 85 50 C75 38, 58 30, 50 15z" fill="#C4956A"/>
+                    <path d="M50 25 C45 35, 35 42, 25 50 C35 48, 45 44, 50 38 C55 44, 65 48, 75 50 C65 42, 55 35, 50 25z" fill="#6B4226"/>
+                    <path d="M50 50 C46 58, 38 65, 30 72 C38 68, 46 62, 50 55 C54 62, 62 68, 70 72 C62 65, 54 58, 50 50z" fill="#C4956A" opacity="0.6"/>
+                </svg>
+                <span class="font-heading text-lg font-bold tracking-tight text-brand">edulekha<span class="text-gold">.in</span></span>
+            </a>
+            <div class="hidden md:flex items-center gap-7 text-sm font-medium">
+                <a href="#services" class="text-espresso/50 hover:text-brand transition">Services</a>
+                <a href="#work" class="text-espresso/50 hover:text-brand transition">Work</a>
+                <a href="#process" class="text-espresso/50 hover:text-brand transition">Process</a>
+                <a href="#contact" class="text-espresso/50 hover:text-brand transition">Contact</a>
+            </div>
+            <a href="https://wa.me/917651807361" target="_blank" class="bg-brand text-cream text-sm font-semibold py-2.5 px-6 rounded-full hover:bg-warm transition-all shadow-sm hover:shadow-lg hover:shadow-brand/15 flex items-center gap-2">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.573-.187-.982-.365-2.114-.92-3.483-3.078-3.587-3.216-.104-.138-.859-1.144-.859-2.183 0-1.04.542-1.554.733-1.761.191-.208.414-.26.551-.26.138 0 .276.001.393.006.126.006.295-.049.444.316.149.366.505 1.238.55 1.332.046.094.076.204.004.348-.065.145-.102.234-.236.388-.133.153-.284.34-.403.458-.127.126-.263.264-.112.527.152.261.677 1.119 1.455 1.815.998.89 1.826 1.157 2.083 1.28.257.124.407.104.561-.072.153-.176.666-.777.844-1.044.178-.268.356-.223.593-.134.238.089 1.5.707 1.76.837.259.13.432.194.494.303.064.108.064.629-.08 1.034z"/></svg>
+                Let's Talk
+            </a>
+        </div>
+        <div class="h-px transition-all duration-500" id="nav-line"></div>
+    </nav>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- HERO -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="min-h-screen flex items-center pt-20 pb-16 relative overflow-hidden">
+        <!-- Decorative -->
+        <div class="absolute top-20 right-16 w-72 h-72 bg-gold/10 rounded-full blur-3xl animate-float"></div>
+        <div class="absolute bottom-20 left-10 w-56 h-56 bg-brand/5 rounded-full blur-3xl animate-float" style="animation-delay:-3s"></div>
+        <div class="absolute top-1/3 left-1/2 w-40 h-40 bg-goldLight/8 rounded-full blur-2xl animate-float" style="animation-delay:-1.5s"></div>
+
+        <div class="max-w-6xl mx-auto px-5 relative z-10">
+            <div class="max-w-3xl">
+                <div class="inline-flex items-center gap-2 bg-brand/5 border border-brand/10 rounded-full px-4 py-1.5 mb-8 animate-fade-up">
+                    <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                    <span class="text-xs font-semibold tracking-widest uppercase text-brand/60">Available for New Projects</span>
+                </div>
+
+                <h1 class="font-heading text-5xl md:text-7xl lg:text-8xl font-extrabold leading-[0.92] mb-6 animate-fade-up" style="animation-delay:0.1s">
+                    We build<br>
+                    <span class="gradient-brand">digital experiences</span><br>
+                    that grow<br>businesses.
+                </h1>
+
+                <p class="text-lg md:text-xl text-espresso/45 max-w-xl mb-10 leading-relaxed font-light animate-fade-up" style="animation-delay:0.2s">
+                    From stunning websites to powerful School ERP systems — we turn ideas into beautifully crafted digital products that your users will love.
+                </p>
+
+                <div class="flex flex-wrap gap-4 animate-fade-up" style="animation-delay:0.3s">
+                    <a href="#work" class="group bg-brand text-cream font-semibold py-3.5 px-8 rounded-full hover:bg-warm transition-all flex items-center gap-2 shadow-lg shadow-brand/15 hover:shadow-brand/25">
+                        View Our Work
+                        <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                    </a>
+                    <a href="#contact" class="font-semibold py-3.5 px-8 rounded-full border-2 border-brand/15 text-brand/60 hover:border-brand hover:text-brand transition-all">
+                        Get a Quote
+                    </a>
+                </div>
+
+                <!-- Stats -->
+                <div class="flex flex-wrap gap-10 mt-16 pt-8 border-t border-brand/8 animate-fade-up" style="animation-delay:0.4s">
+                    <div>
+                        <p class="text-3xl font-heading font-extrabold text-brand" id="stat-projects">10+</p>
+                        <p class="text-xs font-semibold text-espresso/30 uppercase tracking-wider mt-0.5">Projects Delivered</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl font-heading font-extrabold text-brand">100%</p>
+                        <p class="text-xs font-semibold text-espresso/30 uppercase tracking-wider mt-0.5">Client Satisfaction</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl font-heading font-extrabold text-brand">2+</p>
+                        <p class="text-xs font-semibold text-espresso/30 uppercase tracking-wider mt-0.5">Years Experience</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- SERVICES -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section id="services" class="py-24 md:py-32 bg-white border-t border-brand/5">
+        <div class="max-w-6xl mx-auto px-5">
+            <div class="reveal text-center mb-16">
+                <p class="text-gold text-sm font-bold uppercase tracking-[0.2em] mb-3">What We Build</p>
+                <h2 class="font-heading text-3xl md:text-5xl font-extrabold mb-4">Services</h2>
+                <p class="text-espresso/40 text-lg max-w-lg mx-auto">End-to-end digital solutions tailored for businesses of every size.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                <!-- Service 1 -->
+                <div class="reveal group bg-paper border border-brand/8 rounded-3xl p-8 md:p-10 hover:border-gold/30 hover:shadow-xl hover:shadow-brand/5 transition-all duration-500">
+                    <div class="w-14 h-14 rounded-2xl bg-gold/10 flex items-center justify-center mb-6 group-hover:bg-gold/20 transition">
+                        <svg class="w-7 h-7 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-3 group-hover:text-brand transition">Custom Websites</h3>
+                    <p class="text-espresso/40 leading-relaxed text-sm">Stunning, responsive websites that convert visitors into customers. Landing pages, portfolios, business sites — pixel-perfect every time.</p>
+                </div>
+                <!-- Service 2 -->
+                <div class="reveal group bg-paper border border-brand/8 rounded-3xl p-8 md:p-10 hover:border-gold/30 hover:shadow-xl hover:shadow-brand/5 transition-all duration-500" style="transition-delay:0.1s">
+                    <div class="w-14 h-14 rounded-2xl bg-gold/10 flex items-center justify-center mb-6 group-hover:bg-gold/20 transition">
+                        <svg class="w-7 h-7 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-3 group-hover:text-brand transition">Web & Mobile Apps</h3>
+                    <p class="text-espresso/40 leading-relaxed text-sm">Full-stack applications built for performance. From idea to deployment — scalable, secure, and beautifully designed.</p>
+                </div>
+                <!-- Service 3 -->
+                <div class="reveal group bg-paper border border-brand/8 rounded-3xl p-8 md:p-10 hover:border-gold/30 hover:shadow-xl hover:shadow-brand/5 transition-all duration-500" style="transition-delay:0.2s">
+                    <div class="w-14 h-14 rounded-2xl bg-gold/10 flex items-center justify-center mb-6 group-hover:bg-gold/20 transition">
+                        <svg class="w-7 h-7 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-3 group-hover:text-brand transition">School ERP Systems</h3>
+                    <p class="text-espresso/40 leading-relaxed text-sm">Our flagship product — complete school management software. Attendance, fees, reports, parent portals — all under one roof.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- PORTFOLIO / WORK -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section id="work" class="py-24 md:py-32 bg-cream/50 border-t border-brand/5">
+        <div class="max-w-6xl mx-auto px-5">
+            <div class="reveal text-center mb-16">
+                <p class="text-gold text-sm font-bold uppercase tracking-[0.2em] mb-3">Portfolio</p>
+                <h2 class="font-heading text-3xl md:text-5xl font-extrabold mb-4">Our Work Speaks</h2>
+                <p class="text-espresso/40 text-lg max-w-lg mx-auto">Real projects. Real results. Click to explore each one live.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10">
+
+                <!-- PROJECT 1: Beauty Must — YouTube Creator Affiliate Platform -->
+                <a href="projects/beauty-must/beauty-must.html" class="reveal block group">
+                    <div class="browser-frame bg-white">
+                        <div class="browser-bar">
+                            <div class="browser-dot red"></div>
+                            <div class="browser-dot yellow"></div>
+                            <div class="browser-dot green"></div>
+                            <div class="browser-url">beautymust.edulekha.in</div>
+                        </div>
+                        <div class="relative overflow-hidden aspect-[16/10]">
+                            <img src="projects/beauty-must/preview.png" alt="Beauty Must — Affiliate Showcase Website" class="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform duration-700" loading="lazy">
+                            <div class="absolute inset-0 bg-gradient-to-t from-espresso/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400"></div>
+                            <div class="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transform translate-y-3 group-hover:translate-y-0 transition-all duration-400">
+                                <span class="inline-flex items-center gap-1.5 bg-white/90 backdrop-blur text-espresso text-sm font-bold py-2.5 px-6 rounded-xl shadow-lg">
+                                    View Live Site
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-5">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="bg-pink-100 text-pink-600 text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider">Beauty & Makeup</span>
+                            <span class="bg-brand/5 text-brand/60 text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider">Affiliate Platform</span>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold group-hover:text-brand transition">Beauty Must — Creator Storefront</h3>
+                        <p class="text-espresso/40 text-sm mt-1">Link-in-bio affiliate platform for a 138K YouTube channel. Features live product search, category filtering, YouTube Shorts showcase, and dynamic product grid.</p>
+                    </div>
+                </a>
+
+                <!-- PROJECT 2: Shop My Look — Editorial Beauty Portfolio -->
+                <a href="projects/shop-my-look.html" class="reveal block group">
+                    <div class="browser-frame bg-white">
+                        <div class="browser-bar">
+                            <div class="browser-dot red"></div>
+                            <div class="browser-dot yellow"></div>
+                            <div class="browser-dot green"></div>
+                            <div class="browser-url">priyakapoor.edulekha.in</div>
+                        </div>
+                        <div class="relative overflow-hidden aspect-[16/10]">
+                            <img src="projects/shop-my-look-preview.png" alt="Shop My Look — Editorial Beauty Website" class="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform duration-700" loading="lazy">
+                            <div class="absolute inset-0 bg-gradient-to-t from-espresso/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400"></div>
+                            <div class="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transform translate-y-3 group-hover:translate-y-0 transition-all duration-400">
+                                <span class="inline-flex items-center gap-1.5 bg-white/90 backdrop-blur text-espresso text-sm font-bold py-2.5 px-6 rounded-xl shadow-lg">
+                                    View Live Site
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-5">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="bg-rose-100 text-rose-600 text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider">Fashion & Beauty</span>
+                            <span class="bg-brand/5 text-brand/60 text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider">Editorial Design</span>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold group-hover:text-brand transition">Shop My Look — Editorial Storefront</h3>
+                        <p class="text-espresso/40 text-sm mt-1">Luxury editorial-style website for a 320K beauty creator. Features shoppable look galleries, cross-product search, and a curated "Featured Picks" strip.</p>
+                    </div>
+                </a>
+
+                <!-- PROJECT 3: FitCreator — Fitness Influencer Portfolio -->
+                <a href="projects/fitcreator-portfolio.html" class="reveal block group">
+                    <div class="browser-frame bg-white">
+                        <div class="browser-bar">
+                            <div class="browser-dot red"></div>
+                            <div class="browser-dot yellow"></div>
+                            <div class="browser-dot green"></div>
+                            <div class="browser-url">arjunverma.edulekha.in</div>
+                        </div>
+                        <div class="relative overflow-hidden aspect-[16/10]">
+                            <img src="projects/fitcreator-preview.png" alt="FitCreator — Fitness Portfolio Website" class="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform duration-700" loading="lazy">
+                            <div class="absolute inset-0 bg-gradient-to-t from-espresso/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400"></div>
+                            <div class="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transform translate-y-3 group-hover:translate-y-0 transition-all duration-400">
+                                <span class="inline-flex items-center gap-1.5 bg-white/90 backdrop-blur text-espresso text-sm font-bold py-2.5 px-6 rounded-xl shadow-lg">
+                                    View Live Site
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-5">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="bg-lime-100 text-lime-700 text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider">Fitness</span>
+                            <span class="bg-brand/5 text-brand/60 text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider">Creator Portfolio</span>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold group-hover:text-brand transition">FitCreator — Fitness Influencer Hub</h3>
+                        <p class="text-espresso/40 text-sm mt-1">Dark-mode, high-contrast portfolio for a 4.8L subscriber fitness YouTuber. Training programs, video showcase, affiliate gear shop, and creator bio.</p>
+                    </div>
+                </a>
+
+                <!-- PROJECT 4: NGO Website — Live at iskcongranite.in -->
+                <a href="https://iskcongranite.in/ngo/" target="_blank" class="reveal block group">
+                    <div class="browser-frame bg-white">
+                        <div class="browser-bar">
+                            <div class="browser-dot red"></div>
+                            <div class="browser-dot yellow"></div>
+                            <div class="browser-dot green"></div>
+                            <div class="browser-url">iskcongranite.in/ngo</div>
+                        </div>
+                        <div class="relative overflow-hidden aspect-[16/10] bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 flex items-center justify-center">
+                            <div class="text-center p-8">
+                                <div class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                                    <svg class="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                                </div>
+                                <p class="font-heading text-lg font-bold text-orange-900">श्री बांके बिहारी</p>
+                                <p class="font-heading text-sm font-semibold text-orange-700/70">शिक्षा प्रसार समिति</p>
+                                <div class="mt-3 inline-flex items-center gap-1.5 bg-green-100 text-green-700 text-[10px] font-bold px-3 py-1 rounded-full">
+                                    <span class="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span>
+                                    LIVE
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-5">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="bg-orange-100 text-orange-700 text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider">NGO / Non-Profit</span>
+                            <span class="bg-brand/5 text-brand/60 text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider">Multi-Page Hindi</span>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold group-hover:text-brand transition">NGO Platform — Hindi Community Website</h3>
+                        <p class="text-espresso/40 text-sm mt-1">Full Hindi-language website for a charitable trust. Features JSON-driven content, photo galleries across 3 divisions — Gau Seva, Rahat Karya & Shiksha.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- PROCESS -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section id="process" class="py-24 md:py-32 bg-white border-t border-brand/5">
+        <div class="max-w-6xl mx-auto px-5">
+            <div class="reveal text-center mb-16">
+                <p class="text-gold text-sm font-bold uppercase tracking-[0.2em] mb-3">Our Process</p>
+                <h2 class="font-heading text-3xl md:text-5xl font-extrabold mb-4">How We Work</h2>
+                <p class="text-espresso/40 text-lg max-w-lg mx-auto">A proven 4-step process that delivers results, every time.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Step 1 -->
+                <div class="reveal text-center lg:text-left">
+                    <div class="w-12 h-12 rounded-xl bg-brand text-cream flex items-center justify-center font-heading font-extrabold text-lg mb-5 mx-auto lg:mx-0">1</div>
+                    <h3 class="font-heading text-lg font-bold mb-2">Discovery</h3>
+                    <p class="text-espresso/40 text-sm leading-relaxed">We understand your business, goals, audience, and competitive landscape before writing a single line of code.</p>
+                </div>
+                <!-- Step 2 -->
+                <div class="reveal text-center lg:text-left" style="transition-delay:0.1s">
+                    <div class="w-12 h-12 rounded-xl bg-gold/20 text-brand flex items-center justify-center font-heading font-extrabold text-lg mb-5 mx-auto lg:mx-0">2</div>
+                    <h3 class="font-heading text-lg font-bold mb-2">Design</h3>
+                    <p class="text-espresso/40 text-sm leading-relaxed">We create stunning, pixel-perfect designs that align with your brand identity and delight your target users.</p>
+                </div>
+                <!-- Step 3 -->
+                <div class="reveal text-center lg:text-left" style="transition-delay:0.2s">
+                    <div class="w-12 h-12 rounded-xl bg-gold/20 text-brand flex items-center justify-center font-heading font-extrabold text-lg mb-5 mx-auto lg:mx-0">3</div>
+                    <h3 class="font-heading text-lg font-bold mb-2">Develop</h3>
+                    <p class="text-espresso/40 text-sm leading-relaxed">Clean, maintainable code. Responsive on every device. Optimized for speed & search engines.</p>
+                </div>
+                <!-- Step 4 -->
+                <div class="reveal text-center lg:text-left" style="transition-delay:0.3s">
+                    <div class="w-12 h-12 rounded-xl bg-brand text-cream flex items-center justify-center font-heading font-extrabold text-lg mb-5 mx-auto lg:mx-0">4</div>
+                    <h3 class="font-heading text-lg font-bold mb-2">Deploy & Support</h3>
+                    <p class="text-espresso/40 text-sm leading-relaxed">We launch your project and provide ongoing maintenance, updates, and technical support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- TESTIMONIALS -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="py-24 md:py-32 bg-espresso text-cream relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-80 h-80 bg-brand/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-64 h-64 bg-gold/10 rounded-full blur-3xl"></div>
+
+        <div class="max-w-4xl mx-auto px-5 relative z-10">
+            <div class="reveal text-center mb-14">
+                <p class="text-gold text-sm font-bold uppercase tracking-[0.2em] mb-3">Testimonials</p>
+                <h2 class="font-heading text-3xl md:text-5xl font-extrabold mb-4">What Clients Say</h2>
+            </div>
+
+            <div class="grid gap-6 md:grid-cols-2">
+                <div class="reveal bg-white/5 border border-white/10 rounded-2xl p-8 backdrop-blur-sm">
+                    <div class="flex gap-1 mb-4 text-gold">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <p class="text-cream/70 leading-relaxed mb-6 italic">"They transformed our online presence completely. The website is stunning and our school ERP made administration 10x easier. Highly recommended!"</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gold/20 rounded-full flex items-center justify-center font-heading font-bold text-gold">P</div>
+                        <div>
+                            <p class="font-semibold text-sm">Priya Sharma</p>
+                            <p class="text-cream/30 text-xs">School Principal, Lalitpur</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reveal bg-white/5 border border-white/10 rounded-2xl p-8 backdrop-blur-sm" style="transition-delay:0.1s">
+                    <div class="flex gap-1 mb-4 text-gold">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <p class="text-cream/70 leading-relaxed mb-6 italic">"The quality of work is exceptional. They understood our vision perfectly and delivered a website that truly represents our brand. Fast, professional, and creative."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gold/20 rounded-full flex items-center justify-center font-heading font-bold text-gold">R</div>
+                        <div>
+                            <p class="font-semibold text-sm">Rahul Verma</p>
+                            <p class="text-cream/30 text-xs">Business Owner</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- CONTACT CTA -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section id="contact" class="py-24 md:py-32 bg-paper border-t border-brand/5">
+        <div class="max-w-5xl mx-auto px-5">
+            <div class="reveal grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Left: CTA Text -->
+                <div>
+                    <p class="text-gold text-sm font-bold uppercase tracking-[0.2em] mb-3">Let's Connect</p>
+                    <h2 class="font-heading text-3xl md:text-5xl font-extrabold mb-6 leading-tight">
+                        Ready to build<br>something <span class="gradient-brand">incredible?</span>
+                    </h2>
+                    <p class="text-espresso/40 text-lg mb-10 leading-relaxed">
+                        Tell us about your project. We'll get back to you within 24 hours with a free consultation and quote.
+                    </p>
+
+                    <!-- Contact Links -->
+                    <div class="space-y-4">
+                        <!-- WhatsApp (Primary) -->
+                        <a href="https://wa.me/917651807361" target="_blank" class="flex items-center gap-4 group">
+                            <div class="w-12 h-12 rounded-xl bg-green-500/10 flex items-center justify-center group-hover:bg-green-500/20 transition wa-pulse">
+                                <svg class="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.573-.187-.982-.365-2.114-.92-3.483-3.078-3.587-3.216-.104-.138-.859-1.144-.859-2.183 0-1.04.542-1.554.733-1.761.191-.208.414-.26.551-.26.138 0 .276.001.393.006.126.006.295-.049.444.316.149.366.505 1.238.55 1.332.046.094.076.204.004.348-.065.145-.102.234-.236.388-.133.153-.284.34-.403.458-.127.126-.263.264-.112.527.152.261.677 1.119 1.455 1.815.998.89 1.826 1.157 2.083 1.28.257.124.407.104.561-.072.153-.176.666-.777.844-1.044.178-.268.356-.223.593-.134.238.089 1.5.707 1.76.837.259.13.432.194.494.303.064.108.064.629-.08 1.034z"/></svg>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-sm group-hover:text-green-700 transition">WhatsApp Us</p>
+                                <p class="text-espresso/35 text-sm">+91 7651807361</p>
+                            </div>
+                        </a>
+
+                        <!-- Email -->
+                        <a href="mailto:edulekha.erp@gmail.com" class="flex items-center gap-4 group">
+                            <div class="w-12 h-12 rounded-xl bg-brand/8 flex items-center justify-center group-hover:bg-brand/15 transition">
+                                <svg class="w-6 h-6 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-sm group-hover:text-brand transition">Email Us</p>
+                                <p class="text-espresso/35 text-sm">edulekha.erp@gmail.com</p>
+                            </div>
+                        </a>
+
+                        <!-- Phone -->
+                        <a href="tel:+918299835010" class="flex items-center gap-4 group">
+                            <div class="w-12 h-12 rounded-xl bg-brand/8 flex items-center justify-center group-hover:bg-brand/15 transition">
+                                <svg class="w-6 h-6 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-sm group-hover:text-brand transition">Call Us</p>
+                                <p class="text-espresso/35 text-sm">+91 8299835010 · +91 8887710108</p>
+                            </div>
+                        </a>
+
+                        <!-- Location -->
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-brand/8 flex items-center justify-center">
+                                <svg class="w-6 h-6 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-sm">Location</p>
+                                <p class="text-espresso/35 text-sm">Lalitpur, (U.P.) 284403</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Quick Contact Form -->
+                <div class="bg-white rounded-3xl p-8 md:p-10 border border-brand/8 shadow-xl shadow-brand/5">
+                    <h3 class="font-heading text-xl font-bold mb-6">Send a Quick Message</h3>
+                    <form id="contactForm" class="space-y-4">
+                        <div>
+                            <label class="text-xs font-semibold text-espresso/40 uppercase tracking-wider mb-1.5 block">Your Name</label>
+                            <input id="cf-name" type="text" required placeholder="e.g. Rahul Sharma" class="w-full px-4 py-3 rounded-xl bg-paper border border-brand/10 text-sm focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/10 transition placeholder:text-espresso/20">
+                        </div>
+                        <div>
+                            <label class="text-xs font-semibold text-espresso/40 uppercase tracking-wider mb-1.5 block">Phone / WhatsApp</label>
+                            <input id="cf-phone" type="tel" required placeholder="+91 XXXXX XXXXX" class="w-full px-4 py-3 rounded-xl bg-paper border border-brand/10 text-sm focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/10 transition placeholder:text-espresso/20">
+                        </div>
+                        <div>
+                            <label class="text-xs font-semibold text-espresso/40 uppercase tracking-wider mb-1.5 block">Project Details</label>
+                            <textarea id="cf-details" rows="4" required placeholder="Tell us about your project..." class="w-full px-4 py-3 rounded-xl bg-paper border border-brand/10 text-sm focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/10 transition placeholder:text-espresso/20 resize-none"></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn w-full bg-brand text-cream font-bold py-3.5 rounded-xl hover:bg-warm transition-all border-2 border-brand shadow-lg shadow-brand/10 flex items-center justify-center gap-2">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.573-.187-.982-.365-2.114-.92-3.483-3.078-3.587-3.216-.104-.138-.859-1.144-.859-2.183 0-1.04.542-1.554.733-1.761.191-.208.414-.26.551-.26.138 0 .276.001.393.006.126.006.295-.049.444.316.149.366.505 1.238.55 1.332.046.094.076.204.004.348-.065.145-.102.234-.236.388-.133.153-.284.34-.403.458-.127.126-.263.264-.112.527.152.261.677 1.119 1.455 1.815.998.89 1.826 1.157 2.083 1.28.257.124.407.104.561-.072.153-.176.666-.777.844-1.044.178-.268.356-.223.593-.134.238.089 1.5.707 1.76.837.259.13.432.194.494.303.064.108.064.629-.08 1.034z"/></svg>
+                            Send via WhatsApp
+                        </button>
+                        <p class="text-center text-espresso/25 text-xs mt-2">Your message will open in WhatsApp · We reply within 1 hour</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- FOOTER -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <footer class="bg-espresso text-cream/50 py-12 border-t-4 border-gold">
+        <div class="max-w-6xl mx-auto px-5 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-center md:text-left">
+                <div class="flex items-center gap-2 justify-center md:justify-start mb-2">
+                    <svg class="w-6 h-6" viewBox="0 0 100 100" fill="none"><path d="M50 15 C42 30, 25 38, 15 50 C25 47, 42 42, 50 35 C58 42, 75 47, 85 50 C75 38, 58 30, 50 15z" fill="#C4956A"/><path d="M50 25 C45 35, 35 42, 25 50 C35 48, 45 44, 50 38 C55 44, 65 48, 75 50 C65 42, 55 35, 50 25z" fill="#D4A574"/></svg>
+                    <span class="font-heading text-lg font-bold text-cream">edulekha<span class="text-gold">.in</span></span>
+                </div>
+                <p class="text-cream/25 text-sm">School ERP, Websites & Software Development</p>
+            </div>
+            <div class="flex items-center gap-3">
+                <a href="https://wa.me/917651807361" target="_blank" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-green-600 hover:border-green-600 hover:text-white transition-all" title="WhatsApp">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771z"/></svg>
+                </a>
+                <a href="mailto:edulekha.erp@gmail.com" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-brand hover:border-brand hover:text-white transition-all" title="Email">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                </a>
+                <a href="https://edulekha.in" target="_blank" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-gold hover:border-gold hover:text-espresso transition-all" title="Website">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9"/></svg>
+                </a>
+            </div>
+        </div>
+        <div class="max-w-6xl mx-auto px-5 mt-8 pt-6 border-t border-white/5 text-center">
+            <p class="text-cream/15 text-xs">&copy; 2026 Edulekha.in &middot; Lalitpur, (U.P.) 284403 &middot; All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- FLOATING WHATSAPP BUTTON -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <a href="https://wa.me/917651807361" target="_blank"
+       class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-green-500 rounded-full flex items-center justify-center text-white shadow-lg shadow-green-500/30 hover:bg-green-600 hover:scale-110 transition-all wa-pulse"
+       title="Chat on WhatsApp">
+        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.573-.187-.982-.365-2.114-.92-3.483-3.078-3.587-3.216-.104-.138-.859-1.144-.859-2.183 0-1.04.542-1.554.733-1.761.191-.208.414-.26.551-.26.138 0 .276.001.393.006.126.006.295-.049.444.316.149.366.505 1.238.55 1.332.046.094.076.204.004.348-.065.145-.102.234-.236.388-.133.153-.284.34-.403.458-.127.126-.263.264-.112.527.152.261.677 1.119 1.455 1.815.998.89 1.826 1.157 2.083 1.28.257.124.407.104.561-.072.153-.176.666-.777.844-1.044.178-.268.356-.223.593-.134.238.089 1.5.707 1.76.837.259.13.432.194.494.303.064.108.064.629-.08 1.034z"/></svg>
+    </a>
+
+    <!-- JS -->
+    <script>
+    (function() {
+        // Scroll reveal
+        const obs = new IntersectionObserver(entries => {
+            entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+        // Navbar scroll effect
+        const nav = document.getElementById('nav');
+        const navLine = document.getElementById('nav-line');
+        window.addEventListener('scroll', () => {
+            if(window.scrollY > 50) {
+                nav.style.background = 'rgba(245,240,232,0.92)';
+                nav.style.backdropFilter = 'blur(12px)';
+                navLine.style.background = 'rgba(107,66,38,0.08)';
+            } else {
+                nav.style.background = 'transparent';
+                nav.style.backdropFilter = 'none';
+                navLine.style.background = 'transparent';
+            }
+        });
+
+        // WhatsApp Contact Form
+        const form = document.getElementById('contactForm');
+        if(form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const name = document.getElementById('cf-name').value.trim();
+                const phone = document.getElementById('cf-phone').value.trim();
+                const details = document.getElementById('cf-details').value.trim();
+
+                const message = `🌐 *New Project Enquiry — Edulekha.in*\n\n👤 *Name:* ${name}\n📱 *Phone:* ${phone}\n\n📋 *Project Details:*\n${details}\n\n— Sent from edulekha.in portfolio`;
+
+                const waURL = `https://wa.me/917651807361?text=${encodeURIComponent(message)}`;
+
+                // Show success state
+                const btn = form.querySelector('.submit-btn');
+                btn.innerHTML = '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg> Opening WhatsApp...';
+                btn.classList.remove('bg-brand', 'border-brand');
+                btn.classList.add('bg-green-600', 'border-green-600');
+
+                // Open WhatsApp
+                setTimeout(() => {
+                    window.open(waURL, '_blank');
+                    // Reset after 3 seconds
+                    setTimeout(() => {
+                        btn.innerHTML = '<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.573-.187-.982-.365-2.114-.92-3.483-3.078-3.587-3.216-.104-.138-.859-1.144-.859-2.183 0-1.04.542-1.554.733-1.761.191-.208.414-.26.551-.26.138 0 .276.001.393.006.126.006.295-.049.444.316.149.366.505 1.238.55 1.332.046.094.076.204.004.348-.065.145-.102.234-.236.388-.133.153-.284.34-.403.458-.127.126-.263.264-.112.527.152.261.677 1.119 1.455 1.815.998.89 1.826 1.157 2.083 1.28.257.124.407.104.561-.072.153-.176.666-.777.844-1.044.178-.268.356-.223.593-.134.238.089 1.5.707 1.76.837.259.13.432.194.494.303.064.108.064.629-.08 1.034z"/></svg> Send via WhatsApp';
+                        btn.classList.remove('bg-green-600', 'border-green-600');
+                        btn.classList.add('bg-brand', 'border-brand');
+                        form.reset();
+                    }, 3000);
+                }, 300);
+            });
+        }
+    })();
+    </script>
+</body>
+</html>

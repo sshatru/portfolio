@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty Must | My Affiliate Showcase</title>
+    <meta name="description" content="Shop all my beauty must-haves, current favorites, and makeup tutorials in one curated place.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        rose: {
+                            50: '#fff1f2',
+                            100: '#ffe4e6',
+                            200: '#fecdd3',
+                            300: '#fda4af',
+                            400: '#fb7185',
+                            500: '#f43f5e',
+                            600: '#e11d48',
+                            900: '#881337',
+                        },
+                        blush: '#FAEEE7',
+                        slate: '#2D3748',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom Aesthetics -->
+    <style>
+        body { 
+            background-color: #fafafa;
+            background-image: radial-gradient(#fda4af 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 10px 30px rgba(225, 29, 72, 0.05);
+        }
+
+        .filter-btn.active {
+            background-color: #e11d48;
+            color: white;
+            border-color: #e11d48;
+        }
+        
+        /* Smooth Image Loading */
+        img { transition: opacity 0.3s ease-in-out; }
+    </style>
+</head>
+<body class="text-slate font-sans antialiased selection:bg-rose-200">
+
+    <!-- Sticky Header -->
+    <header class="fixed top-0 w-full z-50 transition-all duration-300" id="navbar">
+        <div class="glass-card border-b border-rose-100">
+            <div class="container mx-auto px-4 py-4 flex justify-between items-center max-w-5xl">
+                <a href="#" class="font-serif text-2xl font-bold tracking-tight text-rose-900">
+                    Beauty Must.
+                </a>
+                <div class="flex items-center gap-4">
+                    <a href="#shop" class="hidden sm:inline-block text-sm font-medium text-gray-600 hover:text-rose-600 transition">Shop Grid</a>
+                    <a href="#subscribe" class="bg-slate text-white text-sm font-medium py-2 px-5 rounded-full hover:bg-rose-600 transition-colors shadow-sm">
+                        Newsletter
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-24 pb-20">
+        
+        <!-- Profile Header -->
+        <section class="container mx-auto px-4 max-w-4xl text-center py-12">
+            <div class="relative inline-block mb-6 group">
+                <div class="absolute inset-0 bg-rose-400 rounded-full blur opacity-25 group-hover:opacity-40 transition duration-500"></div>
+                <img src="https://loremflickr.com/300/300/girl,face/all?lock=10" alt="Influencer Profile" class="relative w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-white shadow-xl mx-auto">
+            </div>
+            
+            <h1 class="text-4xl md:text-5xl font-serif font-bold text-slate mb-3">Hi, I'm Isabella</h1>
+            <p class="text-lg md:text-xl font-light text-gray-500 max-w-xl mx-auto mb-6">
+                Your daily dose of glowing skin, soft glam, and honest reviews. You asked for my routine, so I put all my holy-grail items right here! ✨
+            </p>
+            
+            <!-- Social Links -->
+            <div class="flex justify-center gap-4 mb-8">
+                <a href="#" class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-rose-500 hover:bg-rose-500 hover:text-white transition shadow-sm border border-rose-100">YT</a>
+                <a href="#" class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-rose-500 hover:bg-rose-500 hover:text-white transition shadow-sm border border-rose-100">IG</a>
+                <a href="#" class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-rose-500 hover:bg-rose-500 hover:text-white transition shadow-sm border border-rose-100">TT</a>
+            </div>
+        </section>
+
+        <!-- Video Spotlight -->
+        <section class="container mx-auto px-4 max-w-4xl mb-20">
+            <div class="glass-card rounded-3xl p-6 md:p-8">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-2xl font-serif font-bold text-slate">Latest Video</h2>
+                    <span class="bg-rose-100 text-rose-600 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">New</span>
+                </div>
+                <div class="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg border-2 border-white">
+                    <!-- Placeholder YouTube Embed -->
+                    <iframe class="w-full h-full absolute top-0 left-0" src="https://www.youtube.com/embed/LXb3EKWsInQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <p class="text-gray-500 text-sm mt-4 text-center italic">"My Fall 2026 Beauty Must-Haves & Holy Grails!"</p>
+            </div>
+        </section>
+
+        <!-- Affiliate Product Grid -->
+        <section id="shop" class="container mx-auto px-4 max-w-5xl">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-slate mb-4">Shop My Favorites</h2>
+                <p class="text-gray-500 mb-8">Click any product to shop directly via my affiliate links ❤️</p>
+                
+                <!-- Filters -->
+                <div class="flex flex-wrap justify-center gap-2 md:gap-4 mb-10" id="filter-container">
+                    <button class="filter-btn active bg-white border border-rose-200 text-gray-600 px-6 py-2 rounded-full font-medium transition hover:shadow-md" data-filter="all">All Products</button>
+                    <button class="filter-btn bg-white border border-rose-200 text-gray-600 px-6 py-2 rounded-full font-medium transition hover:shadow-md" data-filter="skincare">Skincare</button>
+                    <button class="filter-btn bg-white border border-rose-200 text-gray-600 px-6 py-2 rounded-full font-medium transition hover:shadow-md" data-filter="makeup">Makeup</button>
+                    <button class="filter-btn bg-white border border-rose-200 text-gray-600 px-6 py-2 rounded-full font-medium transition hover:shadow-md" data-filter="haircare">Haircare</button>
+                </div>
+            </div>
+
+            <!-- Products -->
+            <div id="product-grid" class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 transition-opacity duration-300">
+                <!-- Data will be injected here via Javascript -->
+            </div>
+        </section>
+        
+        <!-- Newsletter Footer -->
+        <section id="subscribe" class="container mx-auto px-4 max-w-3xl mt-24">
+            <div class="bg-slate text-white rounded-3xl p-10 text-center relative overflow-hidden shadow-2xl">
+                <!-- Decorative SVG -->
+                <svg class="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 text-rose-900 opacity-50 w-64 h-64" fill="currentColor" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50"></circle></svg>
+                
+                <h3 class="font-serif text-3xl font-bold mb-4 relative z-10">Get the GLOW Up.</h3>
+                <p class="text-gray-400 mb-8 relative z-10 font-light">Join my exclusive newsletter for weekly beauty secrets, private discount codes, and giveaway alerts.</p>
+                
+                <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto relative z-10" onsubmit="event.preventDefault(); alert('Subscribed!');">
+                    <input type="email" placeholder="Your email address" class="flex-grow px-5 py-3 rounded-full text-slate focus:outline-none focus:ring-4 focus:ring-rose-500/50" required>
+                    <button type="submit" class="bg-rose-500 hover:bg-rose-600 text-white font-bold py-3 px-8 rounded-full transition shadow-lg whitespace-nowrap">
+                        Subscribe
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="text-center py-10 text-gray-400 text-sm mt-10">
+        <p>&copy; 2026 Beauty Must. Developed as a Portfolio Project.</p>
+        <p class="mt-2 text-xs italic">Disclaimer: Clicking the product links may earn me a small affiliate commission at no extra cost to you.</p>
+    </footer>
+
+    <!-- AFFILIATE DATA ENGINE -->
+    <script>
+        // 1. Centralized Data Source (Easily readable & editable for the YouTuber)
+        const AFFILIATE_PRODUCTS = [
+            {
+                id: 1,
+                name: "Dewy Glow Serum",
+                brand: "GlowRecipe",
+                price: "$34.00",
+                category: "skincare",
+                image: "https://loremflickr.com/600/800/serum,skincare/all?lock=1",
+                link: "#"
+            },
+            {
+                id: 2,
+                name: "Velvet Matte Lipstick",
+                brand: "Charlotte Tilbury",
+                price: "$32.00",
+                category: "makeup",
+                image: "https://loremflickr.com/600/800/lipstick/all?lock=2",
+                link: "#"
+            },
+            {
+                id: 3,
+                name: "Nourishing Hair Oil",
+                brand: "Gisou",
+                price: "$46.00",
+                category: "haircare",
+                image: "https://loremflickr.com/600/800/hair,oil/all?lock=3",
+                link: "#"
+            },
+            {
+                id: 4,
+                name: "Hydrating Cloud Cream",
+                brand: "Summer Fridays",
+                price: "$42.00",
+                category: "skincare",
+                image: "https://loremflickr.com/600/800/cream,skincare/all?lock=4",
+                link: "#"
+            },
+            {
+                id: 5,
+                name: "Luminous Silk Foundation",
+                brand: "Armani Beauty",
+                price: "$69.00",
+                category: "makeup",
+                image: "https://loremflickr.com/600/800/foundation,makeup/all?lock=5",
+                link: "#"
+            },
+            {
+                id: 6,
+                name: "Rose Quartz Roller",
+                brand: "Herbivore",
+                price: "$18.00",
+                category: "skincare",
+                image: "https://loremflickr.com/600/800/face,roller/all?lock=6",
+                link: "#"
+            }
+        ];
+
+        // 2. Render Functions
+        const productGrid = document.getElementById('product-grid');
+
+        function renderProducts(filterCategory) {
+            // Fade out
+            productGrid.style.opacity = '0';
+            
+            setTimeout(() => {
+                const filtered = filterCategory === 'all' 
+                    ? AFFILIATE_PRODUCTS 
+                    : AFFILIATE_PRODUCTS.filter(p => p.category === filterCategory);
+                
+                if(filtered.length === 0) {
+                    productGrid.innerHTML = `<p class="col-span-full text-center text-gray-500 py-10">No products found in this category.</p>`;
+                } else {
+                    productGrid.innerHTML = filtered.map(p => `
+                        <a href="${p.link}" target="_blank" class="group block">
+                            <div class="glass-card rounded-2xl overflow-hidden transition-all duration-300 transform group-hover:-translate-y-2 group-hover:shadow-xl group-hover:border-rose-200">
+                                <div class="relative aspect-[4/5] overflow-hidden bg-rose-50">
+                                    <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover transform duration-700 group-hover:scale-105" loading="lazy">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-slate/50 to-transparent opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                                    <div class="absolute bottom-4 left-0 w-full text-center transform translate-y-8 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition duration-300">
+                                        <span class="bg-white text-slate text-sm font-bold py-2 px-6 rounded-full shadow-lg">Shop Details</span>
+                                    </div>
+                                </div>
+                                <div class="p-4 md:p-5 text-center bg-white">
+                                    <p class="text-xs font-bold text-rose-500 uppercase tracking-widest mb-1">${p.brand}</p>
+                                    <h3 class="text-gray-800 font-serif font-bold text-lg leading-tight mb-2 group-hover:text-rose-600 transition">${p.name}</h3>
+                                    <p class="text-gray-500 font-medium">${p.price}</p>
+                                </div>
+                            </div>
+                        </a>
+                    `).join('');
+                }
+                
+                // Fade back in
+                productGrid.style.opacity = '1';
+            }, 200); // Wait for transition
+        }
+
+        // 3. Filter Initialization
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                // Update active state
+                filterBtns.forEach(b => b.classList.remove('active', 'bg-rose-600', 'text-white'));
+                filterBtns.forEach(b => b.classList.add('bg-white', 'text-gray-600'));
+                
+                e.target.classList.remove('bg-white', 'text-gray-600');
+                e.target.classList.add('active', 'bg-rose-600', 'text-white');
+                
+                // Render specific category
+                renderProducts(e.target.getAttribute('data-filter'));
+            });
+        });
+
+        // Add scroll effect to navbar
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 20) {
+                nav.classList.add('shadow-md');
+            } else {
+                nav.classList.remove('shadow-md');
+            }
+        });
+
+        // Initialize grid on load
+        renderProducts('all');
+
+    </script>
+</body>
+</html>
